@@ -26,7 +26,6 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Welcome text
             const Text(
               'Welcome Back!',
               style: TextStyle(
@@ -84,15 +83,19 @@ class _LoginScreenState extends State<LoginScreen> {
                         suffixIcon: IconButton(
                           icon: Icon(
                             _obsecureText
-                                ? Icons.visibility_off // Hide password icon
+                                ? Icons
+                                    .visibility_off // Hide password icon
                                 : Icons.remove_red_eye, // Show password icon
-                            color: const Color(0xFFDDB892), // Beige color for icon
+                            color: const Color(
+                              0xFFDDB892,
+                            ), // Beige color for icon
                           ),
                           onPressed: () {
                             setState(() {
-                              _obsecureText = !_obsecureText; // Toggle visibility
+                              _obsecureText =
+                                  !_obsecureText; // Toggle visibility
                             });
-                          }
+                          },
                         ),
                       ),
                       validator: (value) {
@@ -117,7 +120,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           // Navigate to forget password screen
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => ForgetScreen()),
+                            MaterialPageRoute(
+                              builder: (context) => ForgetScreen(),
+                            ),
                           );
                         },
                           },
@@ -138,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(height: 10),
             Row(
               children: [
-                Spacer(), 
+                Spacer(),
                 // Sign up button
                 ElevatedButton(
                   onPressed: () {
@@ -169,8 +174,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       _formKey.currentState!.save(); // Save email and password
                       print('Email: $email');
                       print('Password: $password');
-
-                      // You can now go to the next screen or call your login API
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Login successful for $email'),
+                          duration: const Duration(seconds: 2),
+                          backgroundColor: const Color(0xFF344E41), // Dark green background
+                        ),
+                      );
                     }
                   },
                   child: Container(
