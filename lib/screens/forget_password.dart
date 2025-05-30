@@ -18,7 +18,7 @@ class ForgetScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Reset Your Password',
+              'Reset Your Passworddd',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
