@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'reg_screen.dart';
-import 'forget_password.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -119,11 +117,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       alignment: Alignment.centerRight,
                       child: TextButton(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ForgetScreen(),
-                            ),
+                          Navigator.pushNamed(
+                            context, '/forget',
                           );
                         },
                         child: const Text(
@@ -148,9 +143,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 ElevatedButton(
                   onPressed: () {
                     // Navigate to registration screen
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => RegScreen()),
+                    Navigator.pushNamed(
+                      context,('/reg'),
                     );
                   },
                   child: const Text(
@@ -164,11 +158,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Spacer(), // Spacer to center the button
 
-                const SizedBox(height: 20), // Space before the next button
-                // Next button
+                const SizedBox(height: 20), // Space before the enter button
+                // enter button
                 GestureDetector(
                   onTap: () {
-                    // When "next" is tapped:
+                    // When "enter" is tapped:
                     if (_formKey.currentState!.validate()) {
                       // If all fields are valid
                       _formKey.currentState!.save(); // Save email and password
@@ -181,6 +175,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           backgroundColor: const Color(0xFF344E41), // Dark green background
                         ),
                       );
+                      // Navigate to home screen
+                    Navigator.pushNamed(context, '/home');
                     }
                   },
                   child: Container(
@@ -190,7 +186,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       shape: BoxShape.circle,
                     ),
                     child: const Text(
-                      'next',
+                      'enter',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),

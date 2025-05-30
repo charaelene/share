@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'login_screen.dart';
 
 class RegScreen extends StatefulWidget {
   const RegScreen({super.key});
@@ -14,7 +13,6 @@ class _RegScreenState extends State<RegScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   // Controllers for text fields
   final TextEditingController passwordController = TextEditingController();
-
 
   String? email;
   String? setPassword;
@@ -52,6 +50,7 @@ class _RegScreenState extends State<RegScreen> {
                 child: Column(
                   children: [
                     TextFormField(
+                      style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         labelText: 'Email',
                         labelStyle: const TextStyle(color: Colors.white),
@@ -72,22 +71,26 @@ class _RegScreenState extends State<RegScreen> {
 
                     const SizedBox(height: 16),
                     TextFormField(
-                      controller: passwordController, // Controller for password field
+                      controller:
+                          passwordController, // Controller for password field
                       obscureText: _obsecureText,
                       style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         labelText: 'Set a password',
                         labelStyle: const TextStyle(color: Colors.white),
                         suffixIcon: IconButton(
-                          icon: Icon( // Toggle icon based on _obsecureText state
+                          icon: Icon(
+                            // Toggle icon based on _obsecureText state
                             _obsecureText
-                                ? Icons.visibility_off // Show password icon
+                                ? Icons
+                                    .visibility_off // Show password icon
                                 : Icons.remove_red_eye, // Hide password icon
                             color: Color(0xFFDDB892),
                           ),
                           onPressed: () {
                             setState(() {
-                              _obsecureText = !_obsecureText; // Toggle visibility
+                              _obsecureText =
+                                  !_obsecureText; // Toggle visibility
                             });
                           },
                         ),
@@ -107,6 +110,7 @@ class _RegScreenState extends State<RegScreen> {
 
                     const SizedBox(height: 16),
                     TextFormField(
+                      style: const TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         labelText: 'Confirm password',
                         labelStyle: const TextStyle(color: Colors.white),
@@ -115,7 +119,8 @@ class _RegScreenState extends State<RegScreen> {
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "Please confirm your password.";
-                        } else if (value != passwordController.text) { //compare with the password field
+                        } else if (value != passwordController.text) {
+                          //compare with the password field
                           return "Passwords do not match.";
                         }
                         return null;
@@ -136,10 +141,9 @@ class _RegScreenState extends State<RegScreen> {
                 Spacer(),
                 ElevatedButton(
                   onPressed: () {
-                    // Navigate to login screen
-                    Navigator.push(
+                    Navigator.pushNamed(
                       context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()),
+                      '/login',
                     );
                   },
                   child: const Text(
@@ -153,16 +157,20 @@ class _RegScreenState extends State<RegScreen> {
                 ),
                 Spacer(),
                 const SizedBox(height: 20),
-                // Next button
+                // enter button
                 GestureDetector(
                   onTap: () {
-                    // When "next" is tapped:
+                    // When "enter" is tapped:
                     if (_formKey.currentState!.validate()) {
                       // If all fields are valid
                       _formKey.currentState!.save(); // Save email and password
                       print('Email: $email');
                       print('Password: $setPassword');
                       print('Confirm Password: $confirmPassword');
+                      //navigate to home screen
+                      Navigator.pushNamed(
+                        context,('/home'),
+                      );
                     }
                   },
                   child: Container(
@@ -172,7 +180,7 @@ class _RegScreenState extends State<RegScreen> {
                       shape: BoxShape.circle,
                     ),
                     child: const Text(
-                      'next',
+                      'enter',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
