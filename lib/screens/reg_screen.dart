@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'login_screen.dart';
 
 class RegScreen extends StatefulWidget {
+  const RegScreen({super.key});
+
   @override
   State<RegScreen> createState() => _RegScreenState();
 }
