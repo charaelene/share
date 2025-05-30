@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mbap_part2/screens/login_screen.dart';
+import 'package:mbap_part2/screens/reg_screen.dart';
+import 'package:mbap_part2/screens/forget_password.dart';
+import 'package:mbap_part2/screens/home_screen.dart';
+import 'package:mbap_part2/screens/pantry_editor.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,24 +22,14 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFA3B18A)),
         useMaterial3: true,
       ),
-      home: LoginScreen(),
+      home: HomeScreen(),
+      routes: {
+        '/login': (context) => LoginScreen(),
+        '/reg': (context) => RegScreen(),
+        '/forget': (context) => ForgetScreen(),
+        '/home': (context) => HomeScreen(),
+        '/pantry_editor': (context) => PantryEditor(),
+      },
     );
-  }
-}
-
-class MainScreen extends StatelessWidget {
-  const MainScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('App Name'),
-      ),
-      body: const Center(
-        child: Text('This is a sample Text widget'),
-      ),
-    );  
   }
 }
