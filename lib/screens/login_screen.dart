@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'reg_screen.dart';
+import 'forget_password.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -113,8 +114,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       alignment: Alignment.centerRight,
                       child: TextButton(
                         onPressed: () {
-                          // Add forget password logic here
+                          // Navigate to forget password screen
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ForgetScreen()),
+                          );
                         },
+                          },
                         child: const Text(
                           "Forget Password",
                           style: TextStyle(
