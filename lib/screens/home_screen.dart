@@ -77,7 +77,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Container(
-              width: double.infinity,
+              width: 350,
               margin: EdgeInsets.all(20.0),
               padding: EdgeInsets.all(10.0),
               decoration: BoxDecoration(
@@ -96,7 +96,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 5.0),
                   Text(
-                    "4",
+                    "2",
                     style: TextStyle(
                       color: Color.fromRGBO(46, 94, 55, 1.0),
                       fontSize: 50.0,

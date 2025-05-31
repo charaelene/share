@@ -25,7 +25,7 @@ class QuickNavigationWidget extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(40.0),
         ),
-        minimumSize: Size(115.0, 110.0),
+        minimumSize: Size(129.0, 129.0),
       ),
       onPressed: onPressed ?? () {}, //ensures the button is always clickable
       child: Column(
