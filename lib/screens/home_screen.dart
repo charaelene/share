@@ -151,7 +151,7 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: Container(
                 width: double.infinity,
-                padding: EdgeInsets.all(20.0),
+                // padding: EdgeInsets.all(20.0),
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage("images/blurred_food_background.png"),
@@ -162,46 +162,109 @@ class HomeScreen extends StatelessWidget {
                     topRight: Radius.circular(40.0),
                   ),
                 ),
-                child: FutureBuilder(
-                  future: fetchLatestItems(),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Center(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            CircularProgressIndicator(
-                              color: Color.fromRGBO(211, 212, 172, 1.0),
-                            ),
-                            SizedBox(height: 10),
-                            Text(
-                              'Loading...',
-                              style: TextStyle(
-                                color: Color.fromRGBO(211, 212, 172, 1.0),
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            height: 60.0,
+                            decoration: BoxDecoration(
+                              border: Border(
+                                right: BorderSide(
+                                  color: Color.fromRGBO(211, 212, 172, 1.0),
+                                  width: 3.0,
+                                ),
+                                bottom: BorderSide(
+                                  color: Color.fromRGBO(211, 212, 172, 1.0),
+                                  width: 3.0,
+                                ),
                               ),
                             ),
-                          ],
+                            child: TextButton(
+                              onPressed: () {},
+                              child: FaIcon(
+                                size: 40.0,
+                                FontAwesomeIcons.circleUser,
+                                color: Color.fromRGBO(211, 212, 172, 1.0),
+                              ),
+                            ),
+                          ),
                         ),
-                      ); // Loading spinner
-                    } else if (snapshot.hasError) {
-                      return Text('Error: ${snapshot.error}');
-                    } else {
-                      return ListView.builder(
-                        itemCount: snapshot.data!.length,
-                        itemBuilder: (context, index) {
-                          final item = snapshot.data![index];
-                          return ItemDetailsWidget(
-                            bgColor: Color.fromRGBO(211, 212, 172, 0.6),
-                            image: item['image'],
-                            title: item['title'],
-                            description: item['description'],
+                        Expanded(
+                          child: Container(
+                            height: 60.0,
+                            decoration: BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                  color: Color.fromRGBO(211, 212, 172, 1.0),
+                                  width: 3.0,
+                                ),
+                              ),
+                            ),
+                            child: TextButton(
+                              onPressed: () {},
+                              child: FaIcon(
+                                FontAwesomeIcons.gear,
+                                size: 40.0,
+                                color: Color.fromRGBO(211, 212, 172, 1.0),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    FutureBuilder(
+                      future: fetchLatestItems(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return Center(
+                            child: Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  CircularProgressIndicator(
+                                    color: Color.fromRGBO(211, 212, 172, 1.0),
+                                  ),
+                                  SizedBox(height: 10),
+                                  Text(
+                                    'Loading...',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(211, 212, 172, 1.0),
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ); // Loading spinner
+                        } else if (snapshot.hasError) {
+                          return Text('Error: ${snapshot.error}');
+                        } else {
+                          return Expanded(
+                            child: Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: ListView.builder(
+                                itemCount: snapshot.data!.length,
+                                itemBuilder: (context, index) {
+                                  final item = snapshot.data![index];
+                                  return ItemDetailsWidget(
+                                    bgColor: Color.fromRGBO(211, 212, 172, 0.6),
+                                    image: item['image'],
+                                    title: item['title'],
+                                    description: item['description'],
+                                  );
+                                },
+                              ),
+                            ),
                           );
-                        },
-                      );
-                    }
-                  },
+                        }
+                      },
+                    ),
+                  ],
                 ),
               ),
             ),
