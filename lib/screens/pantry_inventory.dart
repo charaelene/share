@@ -12,7 +12,7 @@ class PantryInventory extends StatelessWidget {
         'title': 'Mom has leftovers from dinner',
         'description':
             'Prepped some meals! Remember to make hot before you eat!',
-        'image': 'assets/leftovers_container.png',
+        'image': 'images/leftovers_container.png',
         'consumed': true,
         'quantity': 1,
         'bgColor': const Color.fromARGB(181, 211, 131, 131),
@@ -20,7 +20,7 @@ class PantryInventory extends StatelessWidget {
       {
         'title': 'Sister has leftovers from lunch',
         'description': '"Couldn\'t finish this..might eat later"',
-        'image': 'assets/leftover_bluebowl.png',
+        'image': 'images/leftover_bluebowl.png',
         'consumed': true,
         'quantity': 1,
         'bgColor': const Color.fromARGB(181, 211, 131, 131),
@@ -28,7 +28,7 @@ class PantryInventory extends StatelessWidget {
       {
         'title': 'Dad bought milk',
         'description': 'Done as requested by mom..',
-        'image': 'assets/meiji_milk.png',
+        'image': 'images/meiji_milk.png',
         'consumed': true,
         'quantity': 1,
         'bgColor': const Color.fromARGB(122, 75, 194, 59),
@@ -36,7 +36,7 @@ class PantryInventory extends StatelessWidget {
       {
         'title': 'Mom bought yogurt',
         'description': 'Eat these with fruits!!',
-        'image': 'assets/chobani_yogurt.png',
+        'image': 'images/chobani_yogurt.png',
         'consumed': true,
         'quantity': 1,
         'bgColor': const Color.fromARGB(122, 75, 194, 59),
@@ -44,7 +44,7 @@ class PantryInventory extends StatelessWidget {
       {
         'title': 'I bought ice cream',
         'description': 'Bought for everyone to share!!',
-        'image': 'assets/ben_jerry.png',
+        'image': 'images/ben_jerry.png',
         'consumed': true,
         'quantity': 2,
         'bgColor': const Color.fromARGB(122, 75, 194, 59),
@@ -52,7 +52,7 @@ class PantryInventory extends StatelessWidget {
       {
         'title': 'I bought milo',
         'description': 'Bought for everyone to share!!',
-        'image': 'assets/milo_resized.png',
+        'image': 'images/milo_resized.png',
         'consumed': true,
         'quantity': 1,
         'bgColor': const Color.fromARGB(122, 75, 194, 59),
@@ -91,7 +91,7 @@ class PantryInventory extends StatelessWidget {
               color: Color.fromRGBO(211, 212, 172, 1.0),
               size: 30,
             ),
-            SizedBox(width: 325),
+            SizedBox(width: 95),
 
             ElevatedButton(
               onPressed: () {
