@@ -37,13 +37,14 @@ class _PantryEditorState extends State<PantryEditor> {
     }
   }
 
-  Future<void> selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
+  Future<void> selectDate(BuildContext context) async { // Function to select a date using a date picker
+    // Show date picker dialog
+    final DateTime? picked = await showDatePicker( 
       context: context,
       initialDate: selectedDate ?? DateTime.now(),
       firstDate: DateTime(2000),
       lastDate: DateTime(2100),
-      builder: (BuildContext context, Widget? child) {
+      builder: (BuildContext context, Widget? child) { // Custom theme for the date picker
         return Theme(
           data: Theme.of(context).copyWith(
             colorScheme: ColorScheme.light(
@@ -72,14 +73,17 @@ class _PantryEditorState extends State<PantryEditor> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat, 
       floatingActionButton: FloatingActionButton(
         backgroundColor: Color.fromRGBO(94, 170, 102, 1.0),
         shape: CircleBorder(),
         child: Icon(Icons.arrow_back, color: Colors.white),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pop(context); // Navigate back to the previous screen
+        },
       ),
       appBar: AppBar(
+        automaticallyImplyLeading: false,// Prevents the default back button
         backgroundColor: Color.fromRGBO(208, 210, 170, 1.0),
         title: Row(
           children: [

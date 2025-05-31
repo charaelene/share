@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: Container(
-        width: double.infinity,
+        width: double.infinity, 
         height: double.infinity,
         decoration: BoxDecoration(color: Color.fromRGBO(30, 80, 42, 1.0)),
         child: Column(
@@ -77,11 +77,13 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   QuickNavigationWidget(
+                    onPressed: () => Navigator.pushNamed(context, '/pantry_editor'),
                     icon: FontAwesomeIcons.plus,
                     label: "Add Item",
                     bgColor: Color.fromRGBO(170, 210, 191, 1.0),
                   ),
                   QuickNavigationWidget(
+                    onPressed: () => Navigator.pushNamed(context, '/pantry_inventory'),
                     icon: FontAwesomeIcons.utensils,
                     label: "Pantry",
                     bgColor: Color.fromRGBO(170, 210, 170, 1.0),

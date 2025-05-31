@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class QuickNavigationWidget extends StatelessWidget {
-  final VoidCallback? onPressed;
+  final VoidCallback? onPressed; // Callback for button press
+  // Icon, label, and background color for the button
   final IconData icon;
   final String label;
   final Color bgColor;
 
-  const QuickNavigationWidget({
-    super.key,
-    this.onPressed,
-    required this.icon,
-    required this.label,
-    required this.bgColor,
+  const QuickNavigationWidget({ // Constructor with named parameters
+    super.key, // Key for the widget
+    this.onPressed, // Optional callback for button press
+    required this.icon, // Icon to display in the button
+    required this.label, // Label text for the button
+    required this.bgColor, // Background color for the button
   });
 
   @override
@@ -26,7 +27,7 @@ class QuickNavigationWidget extends StatelessWidget {
         ),
         minimumSize: Size(115.0, 110.0),
       ),
-      onPressed: onPressed ?? () {},
+      onPressed: onPressed ?? () {}, //ensures the button is always clickable
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
