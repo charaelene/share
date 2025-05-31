@@ -12,7 +12,7 @@ class PantryInventory extends StatelessWidget {
         'title': 'Mom has leftovers from dinner',
         'description':
             'Prepped some meals! Remember to make hot before you eat!',
-        'image': 'assets/leftovers.png',
+        'image': 'assets/leftovers_container.png',
         'consumed': true,
         'quantity': 1,
         'bgColor': const Color.fromARGB(181, 211, 131, 131),
@@ -20,7 +20,7 @@ class PantryInventory extends StatelessWidget {
       {
         'title': 'Sister has leftovers from lunch',
         'description': '"Couldn\'t finish this..might eat later"',
-        'image': 'assets/salad.png',
+        'image': 'assets/leftover_bluebowl.png',
         'consumed': true,
         'quantity': 1,
         'bgColor': const Color.fromARGB(181, 211, 131, 131),
@@ -28,7 +28,7 @@ class PantryInventory extends StatelessWidget {
       {
         'title': 'Dad bought milk',
         'description': 'Done as requested by mom..',
-        'image': 'assets/milk.png',
+        'image': 'assets/meiji_milk.png',
         'consumed': true,
         'quantity': 1,
         'bgColor': const Color.fromARGB(122, 75, 194, 59),
@@ -36,7 +36,7 @@ class PantryInventory extends StatelessWidget {
       {
         'title': 'Mom bought yogurt',
         'description': 'Eat these with fruits!!',
-        'image': 'assets/yogurt.png',
+        'image': 'assets/chobani_yogurt.png',
         'consumed': true,
         'quantity': 1,
         'bgColor': const Color.fromARGB(122, 75, 194, 59),
@@ -44,7 +44,7 @@ class PantryInventory extends StatelessWidget {
       {
         'title': 'I bought ice cream',
         'description': 'Bought for everyone to share!!',
-        'image': 'assets/icecream.png',
+        'image': 'assets/ben_jerry.png',
         'consumed': true,
         'quantity': 2,
         'bgColor': const Color.fromARGB(122, 75, 194, 59),
@@ -52,7 +52,7 @@ class PantryInventory extends StatelessWidget {
       {
         'title': 'I bought milo',
         'description': 'Bought for everyone to share!!',
-        'image': 'assets/milo.png',
+        'image': 'assets/milo_resized.png',
         'consumed': true,
         'quantity': 1,
         'bgColor': const Color.fromARGB(122, 75, 194, 59),
