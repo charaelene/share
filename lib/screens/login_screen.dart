@@ -19,12 +19,8 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(
-        156,
-        184,
-        149,
-        1.0,
-      ), // Light green background
+      // Set background color
+      backgroundColor: Color.fromRGBO(156, 184, 149, 1.0),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Stack(
@@ -65,7 +61,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               labelStyle: TextStyle(
                                 color: Color.fromRGBO(208, 210, 170, 1.0),
                               ),
-                              errorStyle: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+                              errorStyle: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                             keyboardType: TextInputType.emailAddress,
                             validator: (value) {
@@ -87,7 +86,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             style: const TextStyle(color: Colors.white),
                             obscureText: obsecureText,
                             decoration: InputDecoration(
-                              errorStyle: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+                              errorStyle: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold,
+                              ),
                               labelText: 'Password',
                               labelStyle: const TextStyle(
                                 color: Color.fromRGBO(208, 210, 170, 1.0),
