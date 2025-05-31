@@ -43,6 +43,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        heroTag: null,
         onPressed: () => Navigator.pushReplacementNamed(context, '/login'),
         backgroundColor: Colors.transparent,
         elevation: 0.0,

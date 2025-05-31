@@ -75,6 +75,7 @@ class _PantryEditorState extends State<PantryEditor> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.startFloat, 
       floatingActionButton: FloatingActionButton(
+        heroTag: null,
         backgroundColor: Color.fromRGBO(94, 170, 102, 1.0),
         shape: CircleBorder(),
         child: Icon(Icons.arrow_back, color: Colors.white),
