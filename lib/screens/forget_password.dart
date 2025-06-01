@@ -8,7 +8,7 @@ class ForgetScreen extends StatefulWidget {
 }
 
 class _ForgetScreenState extends State<ForgetScreen> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   String? email;
 
   @override
@@ -20,9 +20,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
         backgroundColor: Color.fromRGBO(94, 170, 102, 1.0),
         shape: CircleBorder(),
         child: Icon(Icons.arrow_back, color: Colors.white),
-        onPressed: () {
-          Navigator.pop(context); // Navigate back to the previous screen
-        },
+        onPressed: () => Navigator.pop(context), // Navigate back to the previous screen
       ),
       backgroundColor: Color.fromRGBO(156, 184, 149, 1.0), // Light green color
 
@@ -51,7 +49,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Form(
-                key: _formKey, // Link the form key here
+                key: formKey, // Link the form key here
                 child: Column(
                   children: [
                     // Input field for email
@@ -60,6 +58,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
                       decoration: const InputDecoration(
                         labelText: 'Email',
                         labelStyle: TextStyle(color: Colors.white),
+                        errorStyle: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
                       ),
                       keyboardType: TextInputType.emailAddress,
                       validator: (value) {
@@ -84,8 +83,8 @@ class _ForgetScreenState extends State<ForgetScreen> {
             // Button to send reset link
             ElevatedButton(
               onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  _formKey.currentState!.save();
+                if (formKey.currentState!.validate()) {
+                  formKey.currentState!.save();
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text('Reset link sent to your $email'),
