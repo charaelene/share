@@ -34,7 +34,7 @@ class PantryExpiring extends StatelessWidget {
         'image': 'images/meiji_milk.png',
         'consumed': true,
         'quantity': 1,
-        'bgColor': const Color.fromARGB(122, 75, 194, 59),
+        'bgColor': const Color.fromARGB(181, 211, 131, 131),
       },
       {
         'title': 'Mom bought yogurt',
@@ -42,7 +42,7 @@ class PantryExpiring extends StatelessWidget {
         'image': 'images/chobani_yogurt.png',
         'consumed': true,
         'quantity': 1,
-        'bgColor': const Color.fromARGB(122, 75, 194, 59),
+        'bgColor': const Color.fromARGB(181, 211, 131, 131),
       },
       {
         'title': 'I bought ice cream',
@@ -50,7 +50,7 @@ class PantryExpiring extends StatelessWidget {
         'image': 'images/ben_jerry.png',
         'consumed': true,
         'quantity': 2,
-        'bgColor': const Color.fromARGB(122, 75, 194, 59),
+        'bgColor': const Color.fromARGB(181, 211, 131, 131),
       },
       {
         'title': 'I bought milo',
@@ -58,7 +58,7 @@ class PantryExpiring extends StatelessWidget {
         'image': 'images/milo_resized.png',
         'consumed': true,
         'quantity': 1,
-        'bgColor': const Color.fromARGB(122, 75, 194, 59),
+        'bgColor': const Color.fromARGB(181, 211, 131, 131),
       },
       {
         'title': 'I bought milo',
@@ -66,7 +66,7 @@ class PantryExpiring extends StatelessWidget {
         'image': 'images/milo_resized.png',
         'consumed': true,
         'quantity': 1,
-        'bgColor': const Color.fromARGB(122, 75, 194, 59),
+        'bgColor': const Color.fromARGB(181, 211, 131, 131),
       },
       {
         'title': 'I bought milo',
@@ -74,7 +74,7 @@ class PantryExpiring extends StatelessWidget {
         'image': 'images/milo_resized.png',
         'consumed': true,
         'quantity': 1,
-        'bgColor': const Color.fromARGB(122, 75, 194, 59),
+        'bgColor': const Color.fromARGB(181, 211, 131, 131),
       },
       {
         'title': 'I bought milo',
@@ -82,7 +82,7 @@ class PantryExpiring extends StatelessWidget {
         'image': 'images/milo_resized.png',
         'consumed': true,
         'quantity': 1,
-        'bgColor': const Color.fromARGB(122, 75, 194, 59),
+        'bgColor': const Color.fromARGB(181, 211, 131, 131),
       },
     ];
 
@@ -133,7 +133,7 @@ class PantryExpiring extends StatelessWidget {
               borderRadius: BorderRadius.circular(40.0),
             ),
             child: Text(
-              "2 items are expiring soon",
+              "9 items are expiring soon",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Color.fromRGBO(211, 212, 172, 1.0),
