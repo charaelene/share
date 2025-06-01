@@ -18,7 +18,7 @@ class ItemDetailsWidget extends StatelessWidget {
     this.quantity,
     required this.title,
     this.hasConsumedButton = false,
-    this.hasEditButton = true,
+    this.hasEditButton = false,
   });
 
   @override
@@ -41,7 +41,8 @@ class ItemDetailsWidget extends StatelessWidget {
                 quantity.toString(),
                 style: const TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontSize: 18,
+                  color: Colors.white,
                 ),
               ),
             ),
@@ -84,14 +85,17 @@ class ItemDetailsWidget extends StatelessWidget {
           Column(
             children: [
               if (hasConsumedButton) ...[
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(122, 75, 194, 59),
-                    borderRadius: BorderRadius.circular(20),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    visualDensity: VisualDensity.compact,
+                    padding: EdgeInsets.zero,
+                    backgroundColor: const Color.fromARGB(122, 75, 194, 59),
+                    minimumSize: Size(80, 30),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    )
                   ),
                   child: const Text(
                     'Consumed',
@@ -102,21 +106,17 @@ class ItemDetailsWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 8),
               ],
               if (hasEditButton)
-                Material(
-                  color: Colors.transparent,
-                  child: InkWell(
-                    customBorder: const CircleBorder(),
-                    onTap: () {
-                      Navigator.pushNamed(context, '/pantry_update');
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Icon(FontAwesomeIcons.penToSquare, size: 20),
-                    ),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    visualDensity: VisualDensity.compact,
+                    minimumSize: Size(40, 40),
+                    padding: EdgeInsets.zero,
                   ),
+                  onPressed:
+                      () => Navigator.pushNamed(context, '/pantry_update'),
+                  child: Icon(FontAwesomeIcons.penToSquare, size: 20),
                 ),
             ],
           ),
