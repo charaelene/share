@@ -155,7 +155,7 @@ class ItemDetailsWidget extends StatelessWidget {
                     ),
                     onPressed:
                         () => Navigator.pushNamed(context, '/pantry_update'),
-                    child: Icon(FontAwesomeIcons.penToSquare, size: 20),
+                    child: Icon(FontAwesomeIcons.penToSquare,color: Colors.white, size: 20),
                   ),
                 ),
             ],
