@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mbap_part2/widgets/item_details_widget.dart';
 
 class PantryExpiring extends StatelessWidget {
   const PantryExpiring({super.key});
@@ -91,16 +92,11 @@ class PantryExpiring extends StatelessWidget {
         backgroundColor: Color.fromRGBO(94, 170, 102, 1.0),
         shape: CircleBorder(),
         child: Icon(Icons.arrow_back, color: Colors.white),
-        onPressed: () {
-          Navigator.pop(context); // Navigate back to the previous screen
-        },
+        // Navigate back to the previous screen
+        onPressed: () => Navigator.pop(context),
       ),
-      backgroundColor: Color.fromRGBO(
-        211,
-        212,
-        172,
-        1.0,
-      ), // Dark green background
+      // Dark green background
+      backgroundColor: Color.fromRGBO(211, 212, 172, 1.0),
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
@@ -136,18 +132,15 @@ class PantryExpiring extends StatelessWidget {
               color: Color.fromRGBO(46, 94, 55, 1.0),
               borderRadius: BorderRadius.circular(40.0),
             ),
-            child: Column(
-              children: [
-                Text(
-                  "2 items are expiring soon",
-                  style: TextStyle(
-                    color: Color.fromRGBO(211, 212, 172, 1.0),
-                    fontSize: 26.0,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
+            child: Text(
+              "2 items are expiring soon",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Color.fromRGBO(211, 212, 172, 1.0),
+                fontSize: 26.0,
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           Expanded(
@@ -157,103 +150,13 @@ class PantryExpiring extends StatelessWidget {
               itemCount: pantryItems.length,
               itemBuilder: (context, index) {
                 final item = pantryItems[index];
-                return Container(
-                  margin: const EdgeInsets.symmetric(vertical: 8),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: item['bgColor'],
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // Quantity
-                      Text(
-                        '${item['quantity']}',
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-
-                      // Image
-                      CircleAvatar(
-                        radius: 30,
-                        backgroundImage: AssetImage(item['image']),
-                        backgroundColor: Colors.transparent,
-                      ),
-                      const SizedBox(width: 10),
-
-                      // Text details
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              item['title'],
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                              ),
-                            ),
-                            const SizedBox(height: 5),
-                            Text(
-                              item['description'],
-                              style: const TextStyle(
-                                fontStyle: FontStyle.italic,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      // Consumed and expired label 
-                      Column(
-                        children: [
-                          if (item['expired'] == true)
-                           Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 13,
-                              vertical: 4,
-                            ),
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(188, 204, 92, 92),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: const Text(
-                              'Expired',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 255, 254, 253),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 4,
-                            ),
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(122, 75, 194, 59),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: const Text(
-                              'Consumed',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                return ItemDetailsWidget(
+                  title: item['title'],
+                  description: item['description'],
+                  image: item['image'],
+                  bgColor: item['bgColor'],
+                  hasConsumedButton: true,
+                  hasExpiredButton: true,
                 );
               },
             ),
