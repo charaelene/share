@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ForgetScreen extends StatefulWidget {
   const ForgetScreen({super.key});
-  
+
   @override
   State<ForgetScreen> createState() => _ForgetScreenState();
 }
@@ -14,11 +14,22 @@ class _ForgetScreenState extends State<ForgetScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFA3B18A), // Light green color
+      floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+      floatingActionButton: FloatingActionButton(
+        heroTag: null,
+        backgroundColor: Color.fromRGBO(94, 170, 102, 1.0),
+        shape: CircleBorder(),
+        child: Icon(Icons.arrow_back, color: Colors.white),
+        onPressed: () {
+          Navigator.pop(context); // Navigate back to the previous screen
+        },
+      ),
+      backgroundColor: Color.fromRGBO(156, 184, 149, 1.0), // Light green color
 
       body: Padding(
         padding: const EdgeInsets.symmetric(
-          horizontal: 24.0,), // Padding for the screen
+          horizontal: 24.0,
+        ), // Padding for the screen
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -36,7 +47,7 @@ class _ForgetScreenState extends State<ForgetScreen> {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: const Color(0xFF344E41),
+                color: Color.fromRGBO(30, 80, 42, 1.0),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Form(
@@ -79,7 +90,9 @@ class _ForgetScreenState extends State<ForgetScreen> {
                     SnackBar(
                       content: Text('Reset link sent to your $email'),
                       duration: const Duration(seconds: 2),
-                      backgroundColor: const Color(0xFF344E41), // Dark green background
+                      backgroundColor: const Color(
+                        0xFF344E41,
+                      ), // Dark green background
                     ),
                   );
                 }

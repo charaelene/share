@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -30,6 +31,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const FaIcon(
+                    FontAwesomeIcons.user,
+                    color: Colors.white,
+                    size: 70,
+                  ),
+
                   const Text(
                     'Sign Up',
                     style: TextStyle(
@@ -44,7 +51,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     margin: EdgeInsets.symmetric(horizontal: 40),
                     padding: EdgeInsets.all(20), // Padding inside the container
                     decoration: BoxDecoration(
-                      color: const Color(0xFF344E41),
+                      color: Color.fromRGBO(30, 80, 42, 1.0),
                       borderRadius: BorderRadius.circular(40),
                     ),
 
@@ -173,9 +180,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
 
               Positioned(
-                top: constraints.maxHeight * 0.64,
+                top: constraints.maxHeight * 0.68, // Position the button below the form
                 right: 10,
-                child: // enter button
+                child: // register button
                     ElevatedButton(
                   onPressed: () {
                     // When "enter" is tapped:
