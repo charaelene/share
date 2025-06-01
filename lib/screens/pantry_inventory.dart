@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:mbap_part2/widgets/item_details_widget.dart';
 
 class PantryInventory extends StatelessWidget {
   const PantryInventory({super.key});
@@ -123,7 +124,7 @@ class PantryInventory extends StatelessWidget {
               color: Color.fromRGBO(211, 212, 172, 1.0),
               size: 30,
             ),
-            SizedBox(width: 95),
+            Spacer(),
 
             ElevatedButton(
               onPressed: () {
@@ -166,85 +167,14 @@ class PantryInventory extends StatelessWidget {
               itemCount: pantryItems.length,
               itemBuilder: (context, index) {
                 final item = pantryItems[index];
-                return Container(
-                  margin: const EdgeInsets.symmetric(vertical: 8),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: item['bgColor'],
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // Quantity
-                      Text(
-                        '${item['quantity']}',
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-
-                      // Image
-                      CircleAvatar(
-                        radius: 30,
-                        backgroundImage: AssetImage(item['image']),
-                        backgroundColor: Colors.transparent,
-                      ),
-                      const SizedBox(width: 10),
-
-                      // Text details
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              item['title'],
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                              ),
-                            ),
-                            const SizedBox(height: 5),
-                            Text(
-                              item['description'],
-                              style: const TextStyle(
-                                fontStyle: FontStyle.italic,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      // Consumed label and edit icon
-                      Column(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 4,
-                            ),
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(122, 75, 194, 59),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: const Text(
-                              'Consumed',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          Icon(FontAwesomeIcons.penToSquare, size: 20),
-                        ],
-                      ),
-                    ],
-                  ),
+                return ItemDetailsWidget(
+                  title: item['title'],
+                  description: item['description'],
+                  image: item['image'],
+                  quantity: item['quantity'],
+                  bgColor: item['bgColor'],
+                  hasConsumedButton: true,
+                  hasEditButton: true,
                 );
               },
             ),

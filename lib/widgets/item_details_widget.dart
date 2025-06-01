@@ -31,13 +31,19 @@ class ItemDetailsWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Quantity
           if (quantity != null) ...[
-            Text(
-              quantity.toString(),
-              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            Align(
+              alignment: Alignment.topCenter,
+              child: Text(
+                quantity.toString(),
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
             ),
             const SizedBox(width: 10),
           ],
@@ -59,7 +65,7 @@ class ItemDetailsWidget extends StatelessWidget {
                   title,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 18,
+                    fontSize: 16,
                   ),
                 ),
                 const SizedBox(height: 5),
@@ -67,7 +73,7 @@ class ItemDetailsWidget extends StatelessWidget {
                   description,
                   style: const TextStyle(
                     fontStyle: FontStyle.italic,
-                    fontSize: 16,
+                    fontSize: 14,
                   ),
                 ),
               ],
