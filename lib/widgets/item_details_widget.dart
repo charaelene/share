@@ -91,34 +91,6 @@ class ItemDetailsWidget extends StatelessWidget {
           // Consumed label, expired label and edit icon
           Column(
             children: [
-              if (hasConsumedButton)
-                SizedBox(
-                  height: 20,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      elevation: 0,
-                      visualDensity: VisualDensity.compact,
-                      padding: EdgeInsets.zero,
-                      backgroundColor: const Color.fromARGB(122, 75, 194, 59),
-                      minimumSize: Size(80, 20),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                    child: const Text(
-                      'Consumed',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-
-              if (visibleButtons > 1) const SizedBox(height: 10),
-
               if (hasExpiredButton)
                 SizedBox(
                   height: 20,
@@ -136,6 +108,34 @@ class ItemDetailsWidget extends StatelessWidget {
                     ),
                     child: const Text(
                       'Expired',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+
+              if (visibleButtons > 1) const SizedBox(height: 10),
+
+              if (hasConsumedButton)
+                SizedBox(
+                  height: 20,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      visualDensity: VisualDensity.compact,
+                      padding: EdgeInsets.zero,
+                      backgroundColor: const Color.fromARGB(122, 75, 194, 59),
+                      minimumSize: Size(80, 20),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                    child: const Text(
+                      'Consumed',
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
