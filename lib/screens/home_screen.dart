@@ -126,6 +126,8 @@ class HomeScreen extends StatelessWidget {
                     bgColor: Color.fromRGBO(170, 210, 170, 1.0),
                   ),
                   QuickNavigationWidget(
+                    onPressed:
+                        () => Navigator.pushNamed(context, '/pantry_expiring'),
                     icon: FontAwesomeIcons.clock,
                     label: "Expiring",
                     bgColor: Color.fromRGBO(210, 184, 170, 1.0),

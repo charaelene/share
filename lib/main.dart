@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mbap_part2/screens/login_screen.dart';
 import 'package:mbap_part2/screens/pantry_inventory.dart';
+import 'package:mbap_part2/screens/pantry_expiring.dart';
 import 'package:mbap_part2/screens/reg_screen.dart';
 import 'package:mbap_part2/screens/forget_password.dart';
 import 'package:mbap_part2/screens/home_screen.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => HomeScreen(),
         '/pantry_editor': (context) => PantryEditor(),
         '/pantry_inventory': (context) => PantryInventory(),
+        '/pantry_expiring': (context) => PantryExpiring(),
       },
     );
   }
