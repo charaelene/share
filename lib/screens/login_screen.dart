@@ -44,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     margin: EdgeInsets.symmetric(horizontal: 40.0),
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF344E41),
+                      color: Color.fromRGBO(30, 80, 42, 1.0),
                       borderRadius: BorderRadius.circular(40),
                     ),
 

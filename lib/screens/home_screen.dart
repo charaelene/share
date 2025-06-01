@@ -68,7 +68,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Text(
-              "PantryBuddy,",
+              "PantryBuddy",
               style: TextStyle(
                 color: Color.fromRGBO(211, 212, 172, 1.0),
                 fontSize: 30.0,
