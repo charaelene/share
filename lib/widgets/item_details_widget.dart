@@ -9,6 +9,7 @@ class ItemDetailsWidget extends StatelessWidget {
   final String title;
   final bool hasConsumedButton;
   final bool hasEditButton;
+  final bool hasExpiredButton;
 
   const ItemDetailsWidget({
     super.key,
@@ -19,10 +20,16 @@ class ItemDetailsWidget extends StatelessWidget {
     required this.title,
     this.hasConsumedButton = false,
     this.hasEditButton = false,
+    this.hasExpiredButton = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    int visibleButtons = 0;
+    if (hasConsumedButton) visibleButtons++;
+    if (hasExpiredButton) visibleButtons++;
+    if (hasEditButton) visibleButtons++;
+
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
       padding: const EdgeInsets.all(10),
@@ -81,42 +88,75 @@ class ItemDetailsWidget extends StatelessWidget {
             ),
           ),
 
-          // Consumed label and edit icon
+          // Consumed label, expired label and edit icon
           Column(
             children: [
-              if (hasConsumedButton) ...[
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    visualDensity: VisualDensity.compact,
-                    padding: EdgeInsets.zero,
-                    backgroundColor: const Color.fromARGB(122, 75, 194, 59),
-                    minimumSize: Size(80, 30),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    )
-                  ),
-                  child: const Text(
-                    'Consumed',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+              if (hasConsumedButton)
+                SizedBox(
+                  height: 20,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      visualDensity: VisualDensity.compact,
+                      padding: EdgeInsets.zero,
+                      backgroundColor: const Color.fromARGB(122, 75, 194, 59),
+                      minimumSize: Size(80, 20),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                    child: const Text(
+                      'Consumed',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
-              ],
-              if (hasEditButton)
-                TextButton(
-                  style: TextButton.styleFrom(
-                    visualDensity: VisualDensity.compact,
-                    minimumSize: Size(40, 40),
-                    padding: EdgeInsets.zero,
+
+              if (visibleButtons > 1) const SizedBox(height: 10),
+
+              if (hasExpiredButton)
+                SizedBox(
+                  height: 20,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      visualDensity: VisualDensity.compact,
+                      padding: EdgeInsets.zero,
+                      backgroundColor: Colors.red,
+                      minimumSize: Size(80, 20),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                    child: const Text(
+                      'Expired',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
-                  onPressed:
-                      () => Navigator.pushNamed(context, '/pantry_update'),
-                  child: Icon(FontAwesomeIcons.penToSquare, size: 20),
+                ),
+
+              if (hasEditButton)
+                SizedBox(
+                  height: 30,
+                  child: TextButton(
+                    style: TextButton.styleFrom(
+                      visualDensity: VisualDensity.compact,
+                      padding: EdgeInsets.zero,
+                    ),
+                    onPressed:
+                        () => Navigator.pushNamed(context, '/pantry_update'),
+                    child: Icon(FontAwesomeIcons.penToSquare, size: 20),
+                  ),
                 ),
             ],
           ),
