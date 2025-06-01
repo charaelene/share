@@ -18,7 +18,7 @@ class ItemDetailsWidget extends StatelessWidget {
     this.quantity,
     required this.title,
     this.hasConsumedButton = false,
-    this.hasEditButton = false,
+    this.hasEditButton = true,
   });
 
   @override
@@ -104,7 +104,20 @@ class ItemDetailsWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
               ],
-              if (hasEditButton) Icon(FontAwesomeIcons.penToSquare, size: 20),
+              if (hasEditButton)
+                Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    customBorder: const CircleBorder(),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/pantry_update');
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Icon(FontAwesomeIcons.penToSquare, size: 20),
+                    ),
+                  ),
+                ),
             ],
           ),
         ],
