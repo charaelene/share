@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:mbap_part2/screens/pantry_editor.dart';
+import 'package:mbap_part2/screens/pantry_editor_page.dart';
 import 'dart:io';
 import '../widgets/textfield_widget.dart';
 import '../widgets/dropdown_widget.dart';

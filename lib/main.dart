@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mbap_part2/screens/login_screen.dart';
-import 'package:mbap_part2/screens/pantry_inventory.dart';
-import 'package:mbap_part2/screens/pantry_expiring.dart';
-import 'package:mbap_part2/screens/pantry_update.dart';
+import 'package:mbap_part2/screens/pantry_inventory_page.dart';
+import 'package:mbap_part2/screens/pantry_expiring_page.dart';
+import 'package:mbap_part2/screens/pantry_update_page.dart';
 import 'package:mbap_part2/screens/reg_screen.dart';
-import 'package:mbap_part2/screens/forget_password.dart';
+import 'package:mbap_part2/screens/forget_password_page.dart';
 import 'package:mbap_part2/screens/home_screen.dart';
-import 'package:mbap_part2/screens/pantry_editor.dart';
+import 'package:mbap_part2/screens/pantry_editor_page.dart';
 
 void main() {
   runApp(MyApp());
